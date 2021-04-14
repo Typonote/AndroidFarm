@@ -3,6 +3,7 @@ package com.example.mockup;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
@@ -20,7 +21,7 @@ import com.pedro.library.AutoPermissionsListener;
 
 public class MainActivity extends AppCompatActivity implements AutoPermissionsListener{
 
-    Button btnMain1, btnMain2, btnMain3, btnMain4, btnMainClose;
+    CardView btnMain1, btnMain2, btnMain3, btnMain4, btnMainClose;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +34,12 @@ public class MainActivity extends AppCompatActivity implements AutoPermissionsLi
         btnMain2 = findViewById(R.id.btnMain2);
         btnMain3 = findViewById(R.id.btnMain3);
         btnMain4 = findViewById(R.id.btnMain4);
-        btnMainClose = findViewById(R.id.btnMainClose);
+        //btnMainClose = findViewById(R.id.btnMainClose);
 
-        // 액션바 설정
+        // 액션바 숨기기
         ActionBar bar = getSupportActionBar();
-        bar.setTitle("CROPS");
+        bar.hide();
+        //bar.setTitle("CROPS");
 
 
         // 안드로이드 버전이 8.0(oreo) 이상인 경우 외부저장소 접근 허용 유무 묻기(checkSelfPermission)
@@ -98,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements AutoPermissionsLi
         }); // <농약계산기> 버튼 끝
 
 
-        // <앱 종료> 버튼 시작
+        /* <앱 종료> 버튼 시작
         btnMainClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements AutoPermissionsLi
                 AlertDialog dialog = builder.create();
                 dialog.show();
             }
-        }); // <앱 종료> 버튼 끝
+        });  <앱 종료> 버튼 끝 */
 
     }
 
