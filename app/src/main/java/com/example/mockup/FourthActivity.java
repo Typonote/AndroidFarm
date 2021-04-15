@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,7 +18,8 @@ import com.pedro.library.AutoPermissionsListener;
 
 public class FourthActivity extends AppCompatActivity implements AutoPermissionsListener {
 
-    Button btnHome, btnCal1, btnCal2;
+    Button btnCal1, btnCal2;
+    // Button btnHome;
     EditText edt1, edt2, edt4, edt5;
     TextView tv3, tv6;
     String num1, num2;
@@ -27,11 +30,16 @@ public class FourthActivity extends AppCompatActivity implements AutoPermissions
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fourth);
 
+        // 상태창
+        if (Build.VERSION.SDK_INT >= 21) {
+
+            getWindow().setStatusBarColor(Color.rgb(28,181,152)); }
+
         ActionBar bar = getSupportActionBar();
         bar.setTitle("농약 계산기");
         bar.setDisplayHomeAsUpEnabled(true);
 
-        btnHome =findViewById(R.id.btnHome);
+        //btnHome =findViewById(R.id.btnHome);
         btnCal1 = findViewById(R.id.btnCal1);
         btnCal2 = findViewById(R.id.btnCal2);
 
@@ -83,12 +91,12 @@ public class FourthActivity extends AppCompatActivity implements AutoPermissions
             }
         });
 
-        btnHome.setOnClickListener(new View.OnClickListener() {
+        /* btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
-        });
+        });*/
 
     }
 

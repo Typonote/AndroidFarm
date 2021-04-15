@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
     tools:context=".FourthActivity">
 
     <LinearLayout
@@ -12,264 +12,266 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="3">
+            android:orientation="vertical">
 
-            <TextView
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="  1. 희석배수 구하기"
-                android:textColor="@color/black"
-                android:layout_marginBottom="25dp"
-                android:layout_marginTop="20dp"
-                android:textSize="20sp"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="3">
 
-            <TableLayout
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp">
-
-                <TableRow
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/white"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:text="  1. 희석배수 구하기"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginTop="20dp"
+                    android:textSize="20sp"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="60dp"
-                        android:text="  구분  "
-                        android:textColor="@color/black"
-                        android:background="#FAF4C0"
-                        android:textSize="20sp"
-                        android:gravity="center_horizontal" />
+                <TableLayout
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="60dp"
-                        android:text="약량\n(ml,g) "
-                        android:textColor="@color/black"
-                        android:background="#FAF4C0"
-                        android:textSize="20sp"
-                        android:gravity="center_horizontal" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="60dp"
-                        android:text="물 양\n(L)"
-                        android:textColor="@color/black"
-                        android:background="#FAF4C0"
-                        android:textSize="20sp"
-                        android:gravity="center_horizontal" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="60dp"
-                        android:text="희석배수\n(배)  "
-                        android:textColor="@color/black"
-                        android:background="#FAF4C0"
-                        android:textSize="20sp"
-                        android:gravity="center_horizontal" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/white"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <TableRow
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="  계산  "
-                        android:textColor="@color/black"
-                        android:background="#FFD9FA"
-                        android:textSize="20sp"
-                        android:gravity="center_horizontal" />
+                        android:background="@color/white"
+                        android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/edt1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="   농약량   "
-                        android:background="#ffffff"
-                        android:textSize="20sp"
-                        android:inputType="numberDecimal"
-                        android:gravity="center_horizontal" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:text="  구분  "
+                            android:textColor="@color/black"
+                            android:background="#FAF4C0"
+                            android:textSize="20sp"
+                            android:gravity="center_horizontal" />
 
-                    <EditText
-                        android:id="@+id/edt2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="      물 양      "
-                        android:background="#ffffff"
-                        android:textSize="20sp"
-                        android:inputType="numberDecimal"
-                        android:gravity="center_horizontal" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:text="약량\n(ml,g) "
+                            android:textColor="@color/black"
+                            android:background="#FAF4C0"
+                            android:textSize="20sp"
+                            android:gravity="center_horizontal" />
 
-                    <TextView
-                        android:id="@+id/tv3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="결과"
-                        android:textColor="#FF0000"
-                        android:background="#ffffff"
-                        android:textSize="20sp"
-                        android:inputType="numberDecimal"
-                        android:gravity="center_horizontal" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:text="물 양\n(L)"
+                            android:textColor="@color/black"
+                            android:background="#FAF4C0"
+                            android:textSize="20sp"
+                            android:gravity="center_horizontal" />
 
-                </TableRow>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:text="희석배수\n(배)  "
+                            android:textColor="@color/black"
+                            android:background="#FAF4C0"
+                            android:textSize="20sp"
+                            android:gravity="center_horizontal" />
+                    </TableRow>
 
-            </TableLayout>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btnCal1"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="  계산  "
+                            android:textColor="@color/black"
+                            android:background="#FFD9FA"
+                            android:textSize="20sp"
+                            android:gravity="center_horizontal" />
+
+                        <EditText
+                            android:id="@+id/edt1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="   농약량   "
+                            android:background="#ffffff"
+                            android:textSize="20sp"
+                            android:inputType="numberDecimal"
+                            android:gravity="center_horizontal" />
+
+                        <EditText
+                            android:id="@+id/edt2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="      물 양      "
+                            android:background="#ffffff"
+                            android:textSize="20sp"
+                            android:inputType="numberDecimal"
+                            android:gravity="center_horizontal" />
+
+                        <TextView
+                            android:id="@+id/tv3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="결과"
+                            android:textColor="#FF0000"
+                            android:background="#ffffff"
+                            android:textSize="20sp"
+                            android:inputType="numberDecimal"
+                            android:gravity="center_horizontal" />
+
+                    </TableRow>
+
+                </TableLayout>
+
+                <Button
+                    android:id="@+id/btnCal1"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="희석배수 계산"
+                    app:backgroundTint="#FF9800" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="희석배수 계산"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="  2. 희석배수를 통해 약제량 구하기"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="25dp"
+                    android:textSize="20sp"/>
+
+                <TableLayout
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:text="  구분  "
+                            android:background="#CEFBC9"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:gravity="center_horizontal" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:text="희석배수\n(배) "
+                            android:background="#CEFBC9"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:gravity="center_horizontal" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:text="물 양\n(L)"
+                            android:background="#CEFBC9"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:gravity="center_horizontal" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:text="소요약량\n(ml,g) "
+                            android:background="#CEFBC9"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:gravity="center_horizontal" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:text="  계산  "
+                            android:background="#B2EBF4"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:gravity="center_horizontal" />
+
+                        <EditText
+                            android:id="@+id/edt4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:hint="  희석배수  "
+                            android:background="#ffffff"
+                            android:textSize="20sp"
+                            android:inputType="numberDecimal"
+                            android:gravity="center_horizontal" />
+
+                        <EditText
+                            android:id="@+id/edt5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:hint="  방제물양  "
+                            android:background="#ffffff"
+                            android:textSize="20sp"
+                            android:inputType="numberDecimal"
+                            android:gravity="center_horizontal" />
+
+                        <TextView
+                            android:id="@+id/tv6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:textColor="#FF0000"
+                            android:hint="   결과   "
+                            android:background="#ffffff"
+                            android:textSize="20sp"
+                            android:gravity="center_horizontal" />
+
+                    </TableRow>
+
+                </TableLayout>
+
+                <Button
+                    android:id="@+id/btnCal2"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="약제량 계산"
+                    app:backgroundTint="#FF9800" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="2">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="  2. 희석배수를 통해 약제량 구하기"
-                android:textColor="@color/black"
-                android:layout_marginBottom="25dp"
-                android:textSize="20sp"/>
 
-            <TableLayout
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp">
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/white"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="60dp"
-                        android:text="  구분  "
-                        android:background="#CEFBC9"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:gravity="center_horizontal" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="60dp"
-                        android:text="희석배수\n(배) "
-                        android:background="#CEFBC9"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:gravity="center_horizontal" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="60dp"
-                        android:text="물 양\n(L)"
-                        android:background="#CEFBC9"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:gravity="center_horizontal" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="60dp"
-                        android:text="소요약량\n(ml,g) "
-                        android:background="#CEFBC9"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:gravity="center_horizontal" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/white"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:text="  계산  "
-                        android:background="#B2EBF4"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:gravity="center_horizontal" />
-
-                    <EditText
-                        android:id="@+id/edt4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:hint="  희석배수  "
-                        android:background="#ffffff"
-                        android:textSize="20sp"
-                        android:inputType="numberDecimal"
-                        android:gravity="center_horizontal" />
-
-                    <EditText
-                        android:id="@+id/edt5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:hint="  방제물양  "
-                        android:background="#ffffff"
-                        android:textSize="20sp"
-                        android:inputType="numberDecimal"
-                        android:gravity="center_horizontal" />
-
-                    <TextView
-                        android:id="@+id/tv6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:textColor="#FF0000"
-                        android:hint="   결과   "
-                        android:background="#ffffff"
-                        android:textSize="20sp"
-                        android:gravity="center_horizontal" />
-
-                </TableRow>
-
-            </TableLayout>
-
-            <Button
-                android:id="@+id/btnCal2"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="약제량 계산"/>
-
-            <Button
-                android:id="@+id/btnHome"
-                android:layout_marginTop="40dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="홈으로"/>
-
-        </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

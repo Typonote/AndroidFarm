@@ -10,6 +10,7 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -36,6 +37,11 @@ public class MainActivity extends AppCompatActivity implements AutoPermissionsLi
         btnMain4 = findViewById(R.id.btnMain4);
         //btnMainClose = findViewById(R.id.btnMainClose);
 
+        // 상태창
+        if (Build.VERSION.SDK_INT >= 21) {
+
+            getWindow().setStatusBarColor(Color.rgb(28,181,152)); }
+
         // 액션바 숨기기
         ActionBar bar = getSupportActionBar();
         bar.hide();
@@ -50,11 +56,12 @@ public class MainActivity extends AppCompatActivity implements AutoPermissionsLi
             if (pCheck != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(MainActivity.this, new String[]{
                         Manifest.permission.WRITE_EXTERNAL_STORAGE}, MODE_PRIVATE);
+                showToast("보안체크가 되어있지 않습니다.");
             } else {  // 체크를 한 경우
-                showToast("어서오세요");
+
             }
         } else {  // 안드로이드 버전이 8.0(oreo) 이하인 경우 sdcardProcess() 실행
-            showToast("어서오세요");
+
         }
 
 

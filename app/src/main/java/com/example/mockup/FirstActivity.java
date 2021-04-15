@@ -9,6 +9,9 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -52,6 +55,13 @@ public class FirstActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
+
+       // 상태창
+       if (Build.VERSION.SDK_INT >= 21) {
+
+           getWindow().setStatusBarColor(Color.rgb(28,181,152)); }
+
+
 
         spCategory =findViewById(R.id.spCategory);
         spName =findViewById(R.id.spName);
@@ -171,53 +181,63 @@ public class FirstActivity extends AppCompatActivity {
 
                 // intent.putExtra("cropChoice",spName.getText().toString()); // 선택한 작물의 이름
 
-                switch (rdoGroup.getCheckedRadioButtonId()) {
-                    case R.id.rdoSpaceUnit1: // 평수 -> (평수=3.3*제곱미터)
-                        changeSquareMeter = Double.parseDouble(edtFertArea.getText().toString())*3.3; // 변환
-                        intent.putExtra("FertilizerArea", changeSquareMeter); // 변환한 값을 전달
-                        break;
-                    case R.id.rdoSpaceUnit2: // 제곱미터
-                        changeSquareMeter = Double.parseDouble(edtFertArea.getText().toString());
-                        intent.putExtra("FertilizerArea", changeSquareMeter); // 변환 없이 전달
-                        break;
+                try {
+                    switch (rdoGroup.getCheckedRadioButtonId()) {
+                        case R.id.rdoSpaceUnit1: // 평수 -> (평수=3.3*제곱미터)
+                            changeSquareMeter = Double.parseDouble(edtFertArea.getText().toString())*3.3; // 변환
+                            intent.putExtra("FertilizerArea", changeSquareMeter); // 변환한 값을 전달
+                            break;
+                        case R.id.rdoSpaceUnit2: // 제곱미터
+                            changeSquareMeter = Double.parseDouble(edtFertArea.getText().toString());
+                            intent.putExtra("FertilizerArea", changeSquareMeter); // 변환 없이 전달
+                            break;
+                    }
+
+                }catch (NumberFormatException e){
+                    showToast("값을 입력해주세요");
                 }
+
 
                 try {
-                    if (edtFertWeight.getText().toString().equals("") || edtFertArea.getText().toString().equals("")) {
-                        showToast("입력값이 비었습니다.");
-                    }else if(edtInputN.getText().toString().equals("") || edtInputP.getText().toString().equals("") || edtInputK.getText().toString().equals("")){
-                        showToast("비율은 0이라도 입력해주세요");
-                    }else{
-                        intent.putExtra("FertilizerWeight", Double.parseDouble(edtFertWeight.getText().toString())); // 비료 양
-                        intent.putExtra("spaceUnit",spaceUnit.getText().toString()); // 면적 단위
-                        intent.putExtra("InputN", Integer.parseInt(edtInputN.getText().toString())); // 질소 비율
-                        intent.putExtra("InputP", Integer.parseInt(edtInputP.getText().toString())); // 인산 비율
-                        intent.putExtra("InputK", Integer.parseInt(edtInputK.getText().toString())); // 칼리 비율
-                        intent.putExtra("cropsName",spName.getSelectedItem().toString()); // 작물의 이름
-                        intent.putExtra("recommendPreN",recommendPreN);// 권장 밑거름 질소값
-                        intent.putExtra("recommendPreP",recommendPreP);// 권장 밑거름 인산값
-                        intent.putExtra("recommendPreK",recommendPreK);// 권장 밑거름 칼리값
 
-                        intent.putExtra("recommendPostN",recommendPostN);// 권장 웃거름 질소값
-                        intent.putExtra("recommendPostP",recommendPostP);// 권장 웃거름 인산값
-                        intent.putExtra("recommendPostK",recommendPostK);// 권장 웃거름 칼리값
+                    try {
+                        if (edtFertWeight.getText().toString().equals("") || edtFertArea.getText().toString().equals("")) {
+                            showToast("입력값이 비었습니다.");
+                        } else if (edtInputN.getText().toString().equals("") || edtInputP.getText().toString().equals("") || edtInputK.getText().toString().equals("")) {
+                            showToast("비율은 0이라도 입력해주세요");
+                        } else {
+                            intent.putExtra("FertilizerWeight", Double.parseDouble(edtFertWeight.getText().toString())); // 비료 양
+                            intent.putExtra("spaceUnit", spaceUnit.getText().toString()); // 면적 단위
+                            intent.putExtra("InputN", Integer.parseInt(edtInputN.getText().toString())); // 질소 비율
+                            intent.putExtra("InputP", Integer.parseInt(edtInputP.getText().toString())); // 인산 비율
+                            intent.putExtra("InputK", Integer.parseInt(edtInputK.getText().toString())); // 칼리 비율
+                            intent.putExtra("cropsName", spName.getSelectedItem().toString()); // 작물의 이름
+                            intent.putExtra("recommendPreN", recommendPreN);// 권장 밑거름 질소값
+                            intent.putExtra("recommendPreP", recommendPreP);// 권장 밑거름 인산값
+                            intent.putExtra("recommendPreK", recommendPreK);// 권장 밑거름 칼리값
 
-                        switch (rdoGroup.getCheckedRadioButtonId()) {
-                            case R.id.rdoSpaceUnit1: // 평수 -> (평수=3.3*제곱미터)
-                                changeSquareMeter = Double.parseDouble(edtFertArea.getText().toString())*3.3; // 변환
-                                intent.putExtra("FertilizerArea", changeSquareMeter); // 변환한 값을 전달
-                                break;
-                            case R.id.rdoSpaceUnit2: // 제곱미터
-                                changeSquareMeter = Double.parseDouble(edtFertArea.getText().toString());
-                                intent.putExtra("FertilizerArea", changeSquareMeter); // 변환 없이 전달
-                                break;
+                            intent.putExtra("recommendPostN", recommendPostN);// 권장 웃거름 질소값
+                            intent.putExtra("recommendPostP", recommendPostP);// 권장 웃거름 인산값
+                            intent.putExtra("recommendPostK", recommendPostK);// 권장 웃거름 칼리값
+
+                            switch (rdoGroup.getCheckedRadioButtonId()) {
+                                case R.id.rdoSpaceUnit1: // 평수 -> (평수=3.3*제곱미터)
+                                    changeSquareMeter = Double.parseDouble(edtFertArea.getText().toString()) * 3.3; // 변환
+                                    intent.putExtra("FertilizerArea", changeSquareMeter); // 변환한 값을 전달
+                                    break;
+                                case R.id.rdoSpaceUnit2: // 제곱미터
+                                    changeSquareMeter = Double.parseDouble(edtFertArea.getText().toString());
+                                    intent.putExtra("FertilizerArea", changeSquareMeter); // 변환 없이 전달
+                                    break;
+                            }
+                            startActivity(intent);
                         }
-                        startActivity(intent);
+                    } catch (java.lang.ArithmeticException e) {
+                        showToast("0을 초과하는 값을 입력해주세요");
                     }
-                }catch (java.lang.ArithmeticException e){
-                    showToast("0을 초과하는 값을 입력해주세요");
+                }catch (Exception e){
+                    showToast("값을 입력해주세요");
                 }
-
             }
         }); // <계산> 버튼 끝
 
@@ -232,7 +252,7 @@ public class FirstActivity extends AppCompatActivity {
     // 토스트 메서드 작성
 
     void showToast(String msg) {
-        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
     }
 
     // copyDB

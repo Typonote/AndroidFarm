@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -51,6 +53,11 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+
+        // 상태창
+        if (Build.VERSION.SDK_INT >= 21) {
+
+            getWindow().setStatusBarColor(Color.rgb(28,181,152)); }
 
         spCategory =findViewById(R.id.spCategory);
         spName =findViewById(R.id.spName);

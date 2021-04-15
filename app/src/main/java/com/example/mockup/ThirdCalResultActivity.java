@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.Spannable;
@@ -44,6 +45,11 @@ public class ThirdCalResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third_cal_result);
+
+        // 상태창
+        if (Build.VERSION.SDK_INT >= 21) {
+
+            getWindow().setStatusBarColor(Color.rgb(28,181,152)); }
 
 
 
